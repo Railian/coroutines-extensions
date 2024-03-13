@@ -1,25 +1,25 @@
 import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import ua.railian.gradle.Version
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
+    `railian-library-publish`
 }
+
+group = "io.github.railian.coroutines"
+version = Version(name = "0.2.6")
 
 kotlin {
 
-    jvm()
-
-    targets.withType(KotlinNativeTarget::class)
-        .configureEach {
-            binaries.framework {
-                baseName = "lib"
-                isStatic = true
-            }
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
         }
+    }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
+            api(libs.kotlinx.coroutines.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

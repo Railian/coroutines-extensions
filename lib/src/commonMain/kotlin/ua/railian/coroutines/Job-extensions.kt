@@ -1,4 +1,4 @@
-package ua.railian.coroutines.extensions
+package ua.railian.coroutines
 
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletionHandlerException

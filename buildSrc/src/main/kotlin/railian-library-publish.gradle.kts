@@ -9,6 +9,8 @@ plugins {
     signing
 }
 
+private val githubRepositoryName = "coroutines-extensions"
+
 Properties().apply { load(project.rootProject.file("local.properties").reader()) }
     .onEach { project.ext[it.key.toString()] = it.value }
 
@@ -34,10 +36,10 @@ publishing {
     publications {
         withType<MavenPublication> {
             artifact(javadocJar)
-            artifactId = "coroutines-extensions"
+            artifactId = githubRepositoryName
             pom {
                 name.set("$groupId:$artifactId")
-                url.set("https://github.com/Railian/coroutines-extensions")
+                url.set("https://github.com/Railian/$githubRepositoryName")
                 description.set("Some coroutines extensions for easy codding")
                 licenses {
                     license {
@@ -46,9 +48,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("https://github.com/Railian/coroutines-extensions.git")
-                    developerConnection.set("git@github.com:Railian/coroutines-extensions.git")
-                    url.set("https://github.com/Railian/coroutines-extensions")
+                    connection.set("https://github.com/Railian/$githubRepositoryName.git")
+                    developerConnection.set("git@github.com:Railian/$githubRepositoryName.git")
+                    url.set("https://github.com/Railian/$githubRepositoryName")
                 }
                 developers {
                     developer {

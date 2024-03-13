@@ -3,11 +3,10 @@ import ua.railian.gradle.Version
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    `railian-library-publish`
 }
 
 group = "io.github.railian.coroutines"
-version = Version(name = "0.2.6")
+version = Version(name = "0.2.7")
 
 kotlin {
 
@@ -28,3 +27,5 @@ kotlin {
 
     explicitApi = ExplicitApiMode.Strict
 }
+
+apply<RailianLibraryPublishPlugin>()
